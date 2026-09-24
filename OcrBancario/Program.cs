@@ -1,7 +1,11 @@
 ﻿using OcrBancario;
 
-var reconhecedor = new ReconhecedorDigito();
+var processador = new ProcessadorConta();
 
-Console.WriteLine($"0: {reconhecedor.Reconhecer(" _ ", "| |", "|_|")}");
-Console.WriteLine($"1: {reconhecedor.Reconhecer("   ", "  |", "  |")}");
-Console.WriteLine($"8: {reconhecedor.Reconhecer(" _ ", "|_|", "|_|")}");
+var primeiraLinha = "   " + " _ " + " _ " + "   " + " _ " + " _ " + " _ " + " _ " + " _ ";
+var segundaLinha = "  |" + " _|" + " _|" + "|_|" + "|_ " + "|_ " + "  |" + "|_|" + "|_|";
+var terceiraLinha = "  |" + "|_ " + " _|" + "  |" + " _|" + "|_|" + "  |" + "|_|" + " _|";
+
+var conta = processador.Processar(primeiraLinha, segundaLinha, terceiraLinha);
+
+Console.WriteLine($"Conta identificada: {conta}");
