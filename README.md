@@ -1,0 +1,1 @@
+# Quebra-Cuca-05---OCR-Banc-rio
