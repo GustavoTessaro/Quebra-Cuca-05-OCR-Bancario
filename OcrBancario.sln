@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrBancario", "OcrBancario\OcrBancario.csproj", "{19E2766B-5975-4C72-96CC-78FB1AAAEA21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrBancario.Tests", "OcrBancario.Tests\OcrBancario.Tests.csproj", "{A33D9639-D674-4DF4-B4D7-56D43226AE8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{19E2766B-5975-4C72-96CC-78FB1AAAEA21}.Release|x64.Build.0 = Release|Any CPU
 		{19E2766B-5975-4C72-96CC-78FB1AAAEA21}.Release|x86.ActiveCfg = Release|Any CPU
 		{19E2766B-5975-4C72-96CC-78FB1AAAEA21}.Release|x86.Build.0 = Release|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Debug|x64.Build.0 = Debug|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Debug|x86.Build.0 = Debug|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Release|x64.ActiveCfg = Release|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Release|x64.Build.0 = Release|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Release|x86.ActiveCfg = Release|Any CPU
+		{A33D9639-D674-4DF4-B4D7-56D43226AE8D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
