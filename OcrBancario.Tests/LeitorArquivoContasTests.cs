@@ -6,7 +6,7 @@ namespace OcrBancario.Tests;
 public sealed class LeitorArquivoContasTests
 {
     [TestMethod]
-    public void LeUmaConta()
+    public void LeUmaContaComSeparadorFinalExplicito()
     {
         var caminho = DadosOcr.CriarArquivoTemporario("123456789");
 
@@ -15,6 +15,24 @@ public sealed class LeitorArquivoContasTests
             var resultado = new LeitorArquivoContas().Ler(caminho);
 
             CollectionAssert.AreEqual(new[] { "123456789" }, resultado.ToArray());
+        }
+        finally
+        {
+            DadosOcr.ExcluirArquivo(caminho);
+        }
+    }
+
+    [TestMethod]
+    public void LeUltimaContaSemSeparadorFisico()
+    {
+        var linhas = DadosOcr.CriarLinhasConta("987654321").AsEnumerable();
+        var caminho = DadosOcr.CriarArquivoTemporario(linhas);
+
+        try
+        {
+            var resultado = new LeitorArquivoContas().Ler(caminho);
+
+            CollectionAssert.AreEqual(new[] { "987654321" }, resultado.ToArray());
         }
         finally
         {
@@ -42,9 +60,12 @@ public sealed class LeitorArquivoContasTests
     }
 
     [TestMethod]
-    public void RejeitaRegistroIncompleto()
+    [DataRow(1)]
+    [DataRow(2)]
+    public void RejeitaRegistroComApenasUmaOuDuasLinhas(int quantidadeLinhas)
     {
-        var caminho = DadosOcr.CriarArquivoTemporario(DadosOcr.CriarLinhasConta("123456789").Take(2));
+        var caminho = DadosOcr.CriarArquivoTemporario(
+            DadosOcr.CriarLinhasConta("123456789").Take(quantidadeLinhas));
 
         try
         {
@@ -76,7 +97,11 @@ public sealed class LeitorArquivoContasTests
     [TestMethod]
     public void RejeitaSeparadorComConteudo()
     {
-        var linhas = DadosOcr.CriarLinhasConta("123456789").Append("separador inválido");
+        var linhas = new List<string>();
+        linhas.AddRange(DadosOcr.CriarLinhasConta("123456789"));
+        linhas.Add("separador inválido");
+        linhas.AddRange(DadosOcr.CriarLinhasConta("987654321"));
+        linhas.Add(string.Empty);
         var caminho = DadosOcr.CriarArquivoTemporario(linhas);
 
         try
