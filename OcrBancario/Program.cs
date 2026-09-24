@@ -1,11 +1,25 @@
 ﻿using OcrBancario;
 
-var processador = new ProcessadorConta();
+var leitor = new LeitorArquivoContas();
 
-var primeiraLinha = "   " + " _ " + " _ " + "   " + " _ " + " _ " + " _ " + " _ " + " _ ";
-var segundaLinha = "  |" + " _|" + " _|" + "|_|" + "|_ " + "|_ " + "  |" + "|_|" + "|_|";
-var terceiraLinha = "  |" + "|_ " + " _|" + "  |" + " _|" + "|_|" + "  |" + "|_|" + " _|";
+try
+{
+	var contas = leitor.Ler("entrada.txt");
 
-var conta = processador.Processar(primeiraLinha, segundaLinha, terceiraLinha);
-
-Console.WriteLine($"Conta identificada: {conta}");
+	foreach (var conta in contas)
+	{
+		Console.WriteLine($"Conta identificada: {conta}");
+	}
+}
+catch (FileNotFoundException excecao)
+{
+	Console.WriteLine($"Erro: {excecao.Message}");
+}
+catch (FormatException excecao)
+{
+	Console.WriteLine($"Erro no formato do arquivo: {excecao.Message}");
+}
+catch (ArgumentException excecao)
+{
+	Console.WriteLine($"Erro nos dados da conta: {excecao.Message}");
+}
