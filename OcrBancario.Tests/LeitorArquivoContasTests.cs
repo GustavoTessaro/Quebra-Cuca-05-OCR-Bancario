@@ -44,7 +44,7 @@ public sealed class LeitorArquivoContasTests
     [TestMethod]
     public void RejeitaRegistroIncompleto()
     {
-        var caminho = DadosOcr.CriarArquivoTemporario(DadosOcr.CriarLinhasConta("123456789").Take(3));
+        var caminho = DadosOcr.CriarArquivoTemporario(DadosOcr.CriarLinhasConta("123456789").Take(2));
 
         try
         {

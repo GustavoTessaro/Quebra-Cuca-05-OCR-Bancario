@@ -4,7 +4,7 @@ var leitor = new LeitorArquivoContas();
 
 try
 {
-	var contas = leitor.Ler("entrada.txt");
+	var contas = leitor.Ler("contas-ocr.txt");
 
 	foreach (var conta in contas)
 	{

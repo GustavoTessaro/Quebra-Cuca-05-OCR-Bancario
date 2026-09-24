@@ -15,12 +15,12 @@ public sealed class LeitorArquivoContas
 
         var linhas = File.ReadAllLines(caminho);
 
-        if (linhas.Length == 0 || linhas.Length % 4 != 0)
+        if (linhas.Length == 0 || (linhas.Length % 4 != 0 && linhas.Length % 4 != 3))
         {
             throw new FormatException("O arquivo deve conter registros completos de quatro linhas.");
         }
 
-        var quantidadeContas = linhas.Length / 4;
+        var quantidadeContas = (linhas.Length + 3) / 4;
 
         if (quantidadeContas > 500)
         {
@@ -33,7 +33,7 @@ public sealed class LeitorArquivoContas
         {
             var inicio = indice * 4;
 
-            if (linhas[inicio + 3].Length != 0)
+            if (inicio + 3 < linhas.Length && linhas[inicio + 3].Length != 0)
             {
                 throw new FormatException($"A linha separadora do registro {indice + 1} deve ser vazia.");
             }
